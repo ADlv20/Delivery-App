@@ -1,4 +1,4 @@
-import { ScrollView, View } from "react-native";
+import { ScrollView, View, Text } from "react-native";
 import React, { useEffect, useState } from "react";
 import CategoryCard from "./CategoryCard";
 import axios from "axios";
@@ -11,17 +11,12 @@ const Categories = () => {
             const request = await axios.get(
                 api.domain + api.fetchAllFoodCategories
             );
-
             setBannerData(request.data.data);
-            /* console.log(
-                request.data.data[0].attributes.image.data.attributes.formats
-                    .thumbnail.url
-            ); */
-            //console.log(request.data.data[0].attributes.banner_image.data.attributes.url);
         }
 
         fetchData();
     }, []);
+
     return (
         <ScrollView
             contentContainerStyle={{
