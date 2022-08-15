@@ -18,27 +18,29 @@ const Categories = () => {
     }, []);
 
     return (
-        <ScrollView
-            contentContainerStyle={{
-                paddingHorizontal: 15,
-                paddingTop: 10,
-            }}
-            horizontal
-            showsHorizontalScrollIndicator="false"
-        >
-            {bannerData.map((rests) => (
-                <View key={rests.id}>
-                    <CategoryCard
-                        imgUrl={
-                            api.domain +
-                            rests.attributes.image.data.attributes.formats
-                                .thumbnail.url
-                        }
-                        title={rests.attributes.name}
-                    />
-                </View>
-            ))}
-        </ScrollView>
+        <View>
+            <Text className="font-bold text-xl ml-2 my-1">Categories</Text>
+            <ScrollView
+                contentContainerStyle={{
+                    paddingHorizontal: 15,
+                }}
+                horizontal
+                showsHorizontalScrollIndicator="false"
+            >
+                {bannerData.map((rests) => (
+                    <View key={rests.id}>
+                        <CategoryCard
+                            imgUrl={
+                                api.domain +
+                                rests.attributes.image.data.attributes.formats
+                                    .thumbnail.url
+                            }
+                            title={rests.attributes.name}
+                        />
+                    </View>
+                ))}
+            </ScrollView>
+        </View>
     );
 };
 

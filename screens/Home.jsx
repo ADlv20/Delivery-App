@@ -15,6 +15,7 @@ import {
     AdjustmentsIcon,
 } from "react-native-heroicons/outline";
 import Categories from "../components/Categories";
+import RestaurantRow from "../components/RestaurantRow";
 
 const Home = () => {
     const navigation = useNavigation();
@@ -57,8 +58,11 @@ const Home = () => {
             </View>
 
             <ScrollView>
-				<Categories />
-				
+                <Categories />
+                <RestaurantRow
+                    title="Restaurants Near You"
+                    subtitle="I can smell something great nearby"
+                />
             </ScrollView>
         </SafeAreaView>
     );
