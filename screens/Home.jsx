@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState, useEffect } from "react";
+import React, { useLayoutEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
 import {
     Image,
@@ -15,7 +15,9 @@ import {
     AdjustmentsIcon,
 } from "react-native-heroicons/outline";
 import Categories from "../components/Categories";
-import RestaurantRow from "../components/RestaurantRow";
+import Restaurant from "../components/Restaurant";
+import { api } from "../api/Api";
+import RestaurantCard from "../components/RestaurantCard";
 
 const Home = () => {
     const navigation = useNavigation();
@@ -57,11 +59,17 @@ const Home = () => {
                 <AdjustmentsIcon />
             </View>
 
-            <ScrollView>
+            <ScrollView className="bg-gray-100">
                 <Categories />
-                <RestaurantRow
+                <Restaurant
                     title="Restaurants Near You"
                     subtitle="I can smell something great nearby"
+                    link={api.fetchAllRestaurants}
+                />
+                <Restaurant
+                    title="Featured"
+                    subtitle="See what our partners are cooking"
+                    link={api.fetchAllRestaurants}
                 />
             </ScrollView>
         </SafeAreaView>

@@ -3,26 +3,36 @@ import React, { useEffect, useState } from "react";
 import CategoryCard from "./CategoryCard";
 import axios from "axios";
 import { api } from "../api/Api";
+
 const Categories = () => {
     const [bannerData, setBannerData] = useState([]);
 
     useEffect(() => {
         async function fetchData() {
-            const request = await axios.get(
-                api.domain + api.fetchAllFoodCategories
-            );
-            setBannerData(request.data.data);
+            try {
+                const request = await axios.get(
+                    api.domain + api.fetchAllFoodCategories
+                );
+                setBannerData(request.data.data);
+            } catch (error) {
+                console.log("Error check network Categories");
+            }
         }
-
         fetchData();
     }, []);
 
     return (
         <View>
-            <Text className="font-bold text-xl ml-2 my-1">Categories</Text>
+            <View className="my-1 ml-2">
+                <Text className="font-bold text-xl">Categories</Text>
+                <Text className="font-bold text-gray-400 text-xs">
+                    Explore taste vocabulary
+                </Text>
+            </View>
+
             <ScrollView
                 contentContainerStyle={{
-                    paddingHorizontal: 15,
+                    paddingLeft: 7,
                 }}
                 horizontal
                 showsHorizontalScrollIndicator="false"
