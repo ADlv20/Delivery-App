@@ -1,6 +1,5 @@
 import { Text, View, ScrollView, Image } from "react-native";
 import React, { useEffect, useState } from "react";
-import CategoryCard from "./CategoryCard";
 import axios from "axios";
 import { api } from "../api/Api";
 import { ArrowRightIcon } from "react-native-heroicons/outline";
@@ -16,7 +15,6 @@ const Restaurant = (props) => {
                 setRestaurantData(request.data.data);
             } catch (error) {}
         }
-
         fetchData();
     }, []);
 
@@ -47,7 +45,9 @@ const Restaurant = (props) => {
                                     .formats.thumbnail.url
                             }
                             title={rests.attributes.name}
-                            location={"Ohio"}
+                            location={rests.attributes.location.location}
+                            id={rests.id}
+                            rating={rests.attributes.rating}
                         />
                     </View>
                 ))}

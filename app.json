@@ -1,13 +1,14 @@
 {
   "expo": {
-    "name": "RNativePro",
-    "slug": "RNativePro",
+    "name": "FooDelivery",
+    "slug": "foo-delivery",
+    "description": "Food delivery app created by Dev AD",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/icon.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -23,13 +24,18 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/icon.png",
         "backgroundColor": "#FFFFFF"
       },
       "package": "com.ad"
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/icon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "861d5503-6f71-4d64-8ef3-a179767f7016"
+      }
     }
   }
 }

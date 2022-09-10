@@ -1,6 +1,7 @@
 import React, { useLayoutEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
 import {
+    Button,
     Image,
     SafeAreaView,
     ScrollView,
@@ -17,7 +18,6 @@ import {
 import Categories from "../components/Categories";
 import Restaurant from "../components/Restaurant";
 import { api } from "../api/Api";
-import RestaurantCard from "../components/RestaurantCard";
 
 const Home = () => {
     const navigation = useNavigation();
@@ -71,7 +71,16 @@ const Home = () => {
                     subtitle="See what our partners are cooking"
                     link={api.fetchAllRestaurants}
                 />
+                <Restaurant
+                    title="Discounts Today"
+                    subtitle="Why not eat more for less today"
+                    link={api.fetchAllRestaurants}
+                />
             </ScrollView>
+            <Button
+                title="View Detail"
+                onPress={() => navigation.push("DetailedRestaurant")}
+            />
         </SafeAreaView>
     );
 };
