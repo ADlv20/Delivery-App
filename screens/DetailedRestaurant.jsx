@@ -25,7 +25,6 @@ const DetailedRestaurant = () => {
         });
     }, []);
 
-    const [restaurantData, setRestaurantData] = useState([]);
     const [dishes, setDishes] = useState([]);
 
     useEffect(() => {
@@ -38,7 +37,7 @@ const DetailedRestaurant = () => {
                 console.log(
                     "=============================================================="
                 );
-                console.log(dishes);
+                //console.log(dishes[0]);
             } catch (error) {
                 console.log("Error in Detailed Restaurant");
             }
@@ -111,6 +110,7 @@ const DetailedRestaurant = () => {
                             }
                             name={dish.menuitem}
                             description={dish.menudescription}
+                            id={dish.id}
                         />
                     ))}
                 </View>
