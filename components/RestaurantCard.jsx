@@ -4,19 +4,27 @@ import { LocationMarkerIcon, StarIcon } from "react-native-heroicons/outline";
 import { useNavigation } from "@react-navigation/native";
 
 const RestaurantCard = (props) => {
-    var id = props.id;
-    var img = props.img;
-    const title = props.title;
+    const id = props.id;
+    const img = props.img;
+    const name = props.title;
     const location = props.location;
     const speciality = props.speciality;
     const rating = props.rating;
+    const description = props.description;
 
     navigation = useNavigation();
     return (
         <View className="bg-white mr-2 rounded-md">
             <TouchableOpacity
                 onPress={() => {
-                    navigation.push("DetailedRestaurant");
+                    navigation.push("DetailedRestaurant", {
+                        id,
+                        img,
+                        name,
+                        location,
+                        rating,
+                        description,
+                    });
                 }}
             >
                 <Image
@@ -26,7 +34,7 @@ const RestaurantCard = (props) => {
                     className="h-36 w-64 rounded-md"
                 />
                 <View className="left-2">
-                    <Text className="text-left text-xl font-bold">{title}</Text>
+                    <Text className="text-left text-xl font-bold">{name}</Text>
                     <View className="flex-row items-center ">
                         <StarIcon
                             color={"#FFCC0D"}

@@ -48,6 +48,7 @@ const Restaurant = (props) => {
                             location={rests.attributes.location.location}
                             id={rests.id}
                             rating={rests.attributes.rating}
+                            description={rests.attributes.description}
                         />
                     </View>
                 ))}
