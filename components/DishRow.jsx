@@ -9,7 +9,6 @@ import { useDispatch, useSelector } from "react-redux";
 import {
     addToBasket,
     removeFromBasket,
-    selectBasketItems,
     selectBasketItemsWithId,
 } from "../features/basketSlice";
 
@@ -40,7 +39,7 @@ const DishRow = ({ id, img, name, description, price }) => {
                         </Text>
                         <Text className="text-gray-400">{description}</Text>
                         <Text className="text-gray-400 mt-3">
-                            <Currency quantity={5} currency={"INR"} />
+                            <Currency quantity={price} currency={"INR"} />
                         </Text>
                     </View>
                     <View>
@@ -62,25 +61,23 @@ const DishRow = ({ id, img, name, description, price }) => {
                 <View className="bg-white px-4">
                     <View className="flex-row items-center space-x-2">
                         <TouchableOpacity
+                            onPress={removeItemFromBasket}
+                            className=""
+                        >
+                            <MinusCircleIcon
+                                fill={items.length > 0 ? "#00CCBB" : "red"}
+                                color={"white"}
+                                size={40}
+                            />
+                        </TouchableOpacity>
+                        <Text>{items.length}</Text>
+                        <TouchableOpacity
                             onPress={addItemToBasket}
                             className=""
                         >
                             <PlusCircleIcon
                                 color={"white"}
                                 fill={"#00CCBB"}
-                                size={40}
-                            />
-                        </TouchableOpacity>
-
-                        <Text>{items.length}</Text>
-
-                        <TouchableOpacity
-                            onPress={removeItemFromBasket}
-                            className=""
-                        >
-                            <MinusCircleIcon
-                                fill={"#00CCBB"}
-                                color={"white"}
                                 size={40}
                             />
                         </TouchableOpacity>

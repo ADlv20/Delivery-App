@@ -1,7 +1,13 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { TailwindProvider } from "tailwindcss-react-native";
-import { DetailedRestaurant, Home } from "./screens";
+import {
+    BasketScreen,
+    Delivery,
+    DetailedRestaurant,
+    Home,
+    PreparingOrderScreen,
+} from "./screens";
 import { Provider } from "react-redux";
 import { store } from "./store";
 
@@ -16,6 +22,30 @@ export default function App() {
                         <Stack.Screen
                             name="DetailedRestaurant"
                             component={DetailedRestaurant}
+                        />
+                        <Stack.Screen
+                            name="Basket"
+                            component={BasketScreen}
+                            options={{
+                                presentation: "modal",
+                                headerShown: false,
+                            }}
+                        />
+                        <Stack.Screen
+                            name="PreparingOrderScreen"
+                            component={PreparingOrderScreen}
+                            options={{
+                                presentation: "fullScreenModal",
+                                headerShown: false,
+                            }}
+                        />
+                        <Stack.Screen
+                            name="Delivery"
+                            component={Delivery}
+                            options={{
+                                presentation: "fullScreenModal",
+                                headerShown: false,
+                            }}
                         />
                     </Stack.Navigator>
                 </TailwindProvider>

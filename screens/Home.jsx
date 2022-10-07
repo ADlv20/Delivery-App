@@ -77,10 +77,6 @@ const Home = () => {
                     link={api.fetchAllRestaurants}
                 />
             </ScrollView>
-            <Button
-                title="View Detail"
-                onPress={() => navigation.push("DetailedRestaurant")}
-            />
         </SafeAreaView>
     );
 };
